@@ -16,7 +16,11 @@ var Knights = (function(originalKnights){
     KWANZAA:"ballpark value",
     TREE:"ROI",
     GOOD:"offshoring",
-    TIDINGS:"real-time", 
+    TIDINGS:"real-time",
+    TO:"replace the coffee",
+    YOU:"401k",
+    BRING:"severance package",
+    EGGNOG:"corner office", 
     AND:"nanotechnology", 
     HAPPY:"podcasting", 
     NEW:"information highway", 
@@ -37,11 +41,16 @@ var Knights = (function(originalKnights){
         // console.log(italian[word]);
         let translation = myOfficeSpeak[word];
         if (word in myOfficeSpeak){
-        transArray.push(translation)
-        } else {
-            badWords.push(word); 
-        } 
-        if (badWords.length > 1){
+            transArray.push(translation)
+        let transJoin = transArray.join(" ");
+            // transJoin = transJoin;
+        // console.log("transJoin", transJoin);
+        document.getElementById("transUpdated").innerHTML = `Your Translation: ${transJoin}!`;
+        } else{
+            badWords.push(word);
+            document.getElementById("transUpdated").innerHTML = "Nothing to Translate!";
+
+        } if (badWords.length > 1){ 
                 let badWordsArray = badWords.join(", ");
                 // console.log("badWordsArray",badWordsArray);
                 document.getElementById("error-message").innerHTML = `<b><i>"${badWordsArray}"</b></i> have been removed because they are not in our Office Speak dictionary.`
@@ -51,10 +60,6 @@ var Knights = (function(originalKnights){
         }
     });
 
-        let transJoin = transArray.join(" ");
-            transJoin = transJoin
-        console.log("transJoin", transJoin);
-        document.getElementById("transUpdated").innerHTML = `Your Translation: ${transJoin}!`
     }
     
 
